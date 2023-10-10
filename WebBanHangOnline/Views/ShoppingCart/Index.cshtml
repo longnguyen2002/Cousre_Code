@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Giỏ Hàng - Colo_Shop";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/Client/styles/bootstrap4/bootstrap.min.css">
+<link href="~/Content/Client/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/styles/categories_responsive.css">
+<div class="container product_section_container">
+    <div class="row">
+        <div class="col product_section clearfix">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="/HomeMaster/Index">Home</a></li>
+                    <li class="active"><a style="color:palevioletred;font-weight:600" href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>@ViewBag.Title</a></li>
+                </ul>
+            </div>
+
+            <div class="best_sellers">
+                <div class="container">
+                    <div style="margin-top:-30px" class="row">
+                        <div class="col text-center">
+                            <div class="">
+                                <h3 style="font-family:'Times New Roman', Times, serif">Thông tin giỏ hàng của bạn</h3>
+                                <hr class="text-center" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="Main_content" >
+                <div  id="load_data">
+                    @Html.Action("Partial_Item_Cart", "ShoppingCart")
+                </div>
+                
+                <div class="col-md-12">
+                    @if (ViewBag.CheckCart != null)
+                    {
+                        <div class="text-right">
+                            <a href="#" class="btn btn btn-danger btnDeleteAll"> Xóa</a>
+                            <a href="/thanh-toan" class="btn btn btn-warning"> Thanh Toán</a>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    @*định giá tiền tệ*@
+    @*@string.Format("{0:#,##0}", Model.DonGia)*@
+    
+    <!-- Benefit -->
+    <!-- information graby -->
+    <div class="benefit">
+        <div class="container">
+            <div class="row benefit_row">
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>free shipping</h6>
+                            <p>Suffered Alteration in Some Form</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>cach on delivery</h6>
+                            <p>The Internet Tend To Repeat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>45 days return</h6>
+                            <p>Making it Look Like Readable</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>opening all week</h6>
+                            <p>8AM - 09PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+}
+

@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đăng Nhập</title>
+    <link rel="icon" href="https://baabrand.com/wp-content/uploads/2018/12/icon-thiet-ke-linh-vuc-logo-thuong-hieu-thoi-trang-my-pham-lam-dep-spa-baa-brand-1.png">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/Clients/plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/Content/Clients/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/Clients/dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition login-page">
+    <style>
+        body {
+            background: url("https://growth99.com/wp-content/uploads/2023/05/Growth99-Virtual-Consultation.jpg");
+            background-repeat:no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <div  class="login-box">
+        <!-- /.login-logo -->
+        <div style="box-shadow:2px 0px 15px 5px #DCD7D7;border-radius:20px;" class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="/Home/Index" style="text-transform:uppercase" class="h1"><b>Admin</b></a>
+            </div>
+            <div  class="card">
+               @RenderBody()
+                <!-- /.login-card-body -->
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery -->
+    <script src="~/Content/Clients/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/Clients/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/Clients/dist/js/adminlte.min.js"></script>
+</body>
+</html>
+

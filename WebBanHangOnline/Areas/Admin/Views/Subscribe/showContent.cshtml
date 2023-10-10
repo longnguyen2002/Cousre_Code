@@ -1,0 +1,25 @@
+﻿
+@model IEnumerable<WebBanHangOnline.Models.EF.Subscribe>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+                <img src="https://baabrand.com/wp-content/uploads/2018/12/icon-thiet-ke-linh-vuc-logo-thuong-hieu-thoi-trang-my-pham-lam-dep-spa-baa-brand-1.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                        @item.Name
+                        <span class="float-right text-sm text-danger"><i class="fas fa-star text-warning"></i></span>
+                    </h3>
+                    <p class="text-sm">@item.Detail</p>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>@item.CreatedDate</p>
+                </div>
+            </div>
+            <!-- Message End -->
+        </a>
+    }
+
+}

@@ -1,0 +1,178 @@
+﻿@model WebBanHangOnline.Models.EF.Post
+@{
+    ViewBag.Title = "Tin tức thế giới";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/Client/styles/bootstrap4/bootstrap.min.css">
+<link href="~/Content/Client/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/styles/categories_responsive.css">
+
+<div class="container product_section_container">
+    <div class="row">
+        <div class="col product_section clearfix">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="/HomeMaster/Index"><i class="fa fa-home"></i>Home</a></li>
+                    <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>@ViewBag.Title</a></li>
+                    <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.Title</a></li>
+                </ul>
+            </div>
+            <div class="blog_wrapper layout-blog" itemscope="" itemtype="https://schema.org/Blog">
+                <meta itemprop="name" content="Tin tức">
+                <meta itemprop="description" content="">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="right-content col-lg-8 col-12 ">
+                            <div class="article-details clearfix">
+                                <h3 style="font-size:35px;" class="article-title">@Model.Title</h3>
+                                <div style="display:flex" class="posts">
+                                    <div class="time-post f">
+                                        <i style="font-size: 15px; color: indianred" class="fa fa-history"></i>
+                                        @Model.CreatedDate
+                                    </div>
+                                    <div style="margin-left:10px;" class="time-post">
+                                        <i style="font-size:15px;color:blue" class="fa fa-user"></i>
+                                        <span>Nguyễn Như Long</span>
+                                    </div>
+                                </div>
+
+                                <div style="background-color: #fff0f0;font-size:15px;height:auto;border-radius:20px;    " class="goto-wrapper ftoc-head">
+                                    <br />
+                                    <a style="color:black;font-size:20px;padding:35px 12px;text-transform:uppercase" class="title-goto-wrapper" href="javascript:;">
+                                        Nội dung chính
+                                    </a>
+                                    <div class="dola-toc">
+                                        <style>
+                                            .dola-toc .toc-list li a {
+                                                color: black;
+                                            }
+                                        </style>
+                                        <ol style="padding:10px 25px;" class="toc-list ">
+                                            <li class="toc-list-item is-active-li"><a href="#chú_ý_đến_kích_thước_và_cân_nặng_của_chiếc_balo_du_lịch_nữ" class="toc-link node-name--H3  is-active-link">Chú ý đến kích thước và kịch bản của những&nbsp;bài báo mang thông tin quốc gia</a></li>
+                                            <li class="toc-list-item"><a href="#lựa_chọn_những_mẫu_balo_du_lịch_nữ_có_kiểu_dáng_ứng_ý_và_thời_trang" class="toc-link node-name--H3 ">Lựa chọn những tin tức&nbsp;mới đang tin cập&nbsp;có kiểu thông tin cần dùng</a></li>
+                                            <li class="toc-list-item"><a href="#tìm_hiểu_kỹ_chất_liệu_của_chiếc_balo_du_lịch_nữ" class="toc-link node-name--H3 ">Tìm hiểu kỹ thông tin trong bài báo</a></li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="rte article-content">
+
+                                    @Html.Raw(Model.Detail)
+
+                                </div>
+                                <hr />
+                            </div>
+
+
+                            <div style="background-color: #fff0f0;border-radius:20px;" class="thump-comment">
+
+                                <form style="padding:15px 20px;" method="post" action="" id="article_comments" accept-charset="UTF-8">
+                                    <input name="FormType" type="hidden" value="article_comments"><input name="utf8" type="hidden" value="true"><input type="hidden" id="Token-59d692a07150435db2c5715c8046029a" name="Token" value="03AFcWeA4l7LKFsAqV3q7SiUA5opr-clbTKeQmTGmXm2piStBgTeM_mLJ5JjQjMx3pC1keSzYia9N_0ykFRAMjxL7CVFGtkQedvAgHsv-xN_zJshNqrRCMAhQ9LE1F5zml1VM1Z_M8zSkemIffnrVSowY7qTPZr3M_MaUDTJE-f3RFmi78EoYPDLHvWXnSYIwHCHhQq0pkPYZd4MCRN0fvvsXyzcThTChdBWw1mtq4lSpC0X4S8e9PbAAxM-UogPiI8KSLxfe-gmxl_uDU0ZFu-nR8j0DGveXs0Lu-EaoK5_Kw7eUxv-CqiKAh9Gyy6xEsw15_2mQr-sVrYVOz8olwYipP1QlSc4WGLQR3tW9Cw97FPXTrFD3s7fCjgKlwp4dUEtvkCogZC_2D_Dsd6977tPDrH_ooZRGWZzUKnRQakASj14W4N7PzcbmR766eJo_k1c6voOkVSK6s2ki44R6rh23dqVzIu1_f9sLMDn-gUnONJokQYJ4-MNojdJrac61-4SK_H4Vs91toihcug6yHXBIZfyor6TwEqsC1tOvk_YtQYr8JxTtkhlm75Rp26_mXKlwj4FZZlCgc">
+                                    <script src="https://www.google.com/recaptcha/api.js?render=6Ldtu4IUAAAAAMQzG1gCw3wFlx_GytlZyLrXcsuK"></script>
+                                    <script>grecaptcha.ready(function () { grecaptcha.execute("6Ldtu4IUAAAAAMQzG1gCw3wFlx_GytlZyLrXcsuK", { action: "article_comments" }).then(function (token) { document.getElementById("Token-59d692a07150435db2c5715c8046029a").value = token }); });</script>
+
+
+                                    <div class="form-coment">
+                                        <div class="margin-top-0 margin-bottom-30 w-100">
+                                            <h3 class="title-index"><span>Viết bình luận của bạn</span></h3>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-12">
+                                                <fieldset class="form-group padding-0">
+                                                    <input placeholder="Họ và tên" type="text" class="form-control form-control-lg" value="" id="full-name" name="Author" required="">
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <fieldset class="form-group padding-0">
+                                                    <input placeholder="Email" pattern="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z]{2,63}$" type="email" class="form-control form-control-lg" value="" name="Email" required="">
+                                                </fieldset>
+                                            </div>
+                                            <fieldset class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <textarea placeholder="Nội dung" class="form-control form-control-lg" id="comment" name="Body" rows="6" required=""></textarea>
+                                            </fieldset>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary button_45">Gửi thông tin</button>
+                                            </div>
+                                        </div>
+                                    </div> <!-- End form mail -->
+                                </form>
+
+
+                            </div>
+                            <br /><br />
+
+
+
+                        </div>
+                        <style>
+                            .blog_left_base {
+                                width: 100%;
+                                height: auto;
+                            }
+
+                            .aside-content-menu {
+                                background-color: #fff0f0;
+                                border-radius: 10px;
+                            }
+                        </style>
+
+                        <div class="blog_left_base col-lg-4 col-xl-4">
+                            <div class="aside-content-menu aside-content-blog">
+                                <div style="font-size:20px;color:orangered;padding:10px 11px;text-transform:uppercase;font-weight:600" class="title-head-col">
+                                    <i class="fa fa-bars"></i> Danh mục tin tức
+                                </div>
+                                <nav class="nav-category">
+                                    @Html.Action("Menu_right", "News")
+                                </nav>
+                            </div>
+                            <script>
+                                $(".open_mnu").click(function () {
+                                    $(this).toggleClass('cls_mn').next().slideToggle();
+                                });
+                            </script><div class="blog_noibat">
+
+                                <div class="container">
+                                    <br /><br />
+                                </div>
+
+
+                                <div class="aside-content-menu aside-content-blog">
+                                    <div style="font-size: 20px; color: orangered; padding: 10px 11px; text-transform: uppercase; font-weight: 600" class="title-head-col">
+                                        <i class="fa fa-hacker-news"></i> Tin tức nổi bật
+                                    </div>
+                                    <nav class="nav-category">
+                                        @Html.Action("New_hot", "Blog")
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Content/Client/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/Client/styles/bootstrap4/popper.js"></script>
+    <script src="~/Content/Client/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="~/Content/Client/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="~/Content/Client/plugins/easing/easing.js"></script>
+    <script src="~/Content/Client/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="~/Content/Client/js/categories_custom.js"></script>
+
+}
+

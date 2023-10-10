@@ -1,0 +1,13 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.productscategory>
+
+@if (Model != null && Model.Any())
+{
+    <ul class="sidebar_categories">
+        <li><a href="#">Men</a></li>
+        @foreach (var item in Model)
+        {
+            <li><a href="/Product/HomeList">@item.Title</a></li>
+        }
+       
+    </ul>
+}

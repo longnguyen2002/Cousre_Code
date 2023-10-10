@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Giới thiệu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="main_slider" style="background-image:url(/Content/Client/images/slider_1.jpg);height:500px;">
+    <div class="container fill_height">
+        <div class="row align-items-center fill_height">
+            <div class="col">
+                <div class="main_slider_content">
+                    <h6>Spring / Summer Collection 2017</h6>
+                    <h1>Get up to 30% Off New Arrivals</h1>
+                    <div style="box-shadow: 0px 0px 2px 8px rgba(0, 0, 0, 0.3);" class="red_button shop_now_button"><a href="#">shop now</a></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <br />
+    <section class="page">
+        <div class="container">
+            <div class="pg_page padding-top-15">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title category-title">
+                            <h1 class="title-head"><a href="#" style="color:black">Giới thiệu</a></h1>
+                        </div>
+                        <div class="content-page rte">
+                            <p>Dolor Fashion Color_Shop là cửa hàng bán phụ kiện thời trang nữ đang được rất nhiều khách hàng yêu thích tại thành phố. Với các sản phẩm chất lượng, kiểu dáng đa dạng và giá cả hợp lý, cửa hàng này đã trở thành điểm đến quen thuộc của những người yêu thời trang.</p>
+                            <p>Tại Dolor Fashion Color_Shop, bạn có thể tìm thấy các loại phụ kiện thời trang như túi xách, giày dép, trang sức, kính mát, đồng hồ, v.v. Với sự đa dạng về mẫu mã và chủng loại, cửa hàng này hứa hẹn đáp ứng được nhu cầu của mọi khách hàng.</p>
+                            <p>Các sản phẩm tại Dolor Fashion Color_Shop được thiết kế với nhiều phong cách và màu sắc khác nhau để phù hợp với mọi gu thời trang của khách hàng. Với chất lượng cao và thiết kế tinh tế, các sản phẩm tại cửa hàng này không chỉ là sự lựa chọn tuyệt vời cho các buổi tiệc mà còn cho những ngày làm việc hay đi chơi cuối tuần.</p>
+                            <p>Ngoài ra, Dolor Fashion Color_Shop cũng thường xuyên cập nhật các sản phẩm mới nhất để luôn đáp ứng được nhu cầu của khách hàng. Hơn nữa, cửa hàng cũng có những chương trình khuyến mãi đặc biệt trong các dịp lễ hay sinh nhật để giúp các khách hàng tiết kiệm chi phí.</p>
+                            <p>Đến với Dolor Fashion Color_Shop, bạn sẽ được phục vụ bởi đội ngũ nhân viên nhiệt tình và tâm huyết. Họ luôn sẵn sàng tư vấn cho khách hàng về cách phối đồ, chọn lựa sản phẩm sao cho phù hợp nhất với nhu cầu của khách hàng.</p>
+                            <p>Với không gian rộng rãi, thoáng mát và sắp xếp sản phẩm theo từng khu vực, Dolor Fashion Color_Shop tạo ra một không gian mua sắm thân thiện với khách hàng. Không chỉ là nơi mua sắm, cửa hàng còn trở thành nơi để khách hàng thư giãn sau một ngày dài làm việc.</p>
+                            <p>Các sản phẩm tại Dolor Fashion Color_Shop không chỉ đẹp mà còn có chất lượng cao và bền. Với sự chú trọng đến chi tiết nhỏ nhặt, cửa hàng đã tạo ra các sản phẩm đẹp mắt và đáp ứng được nhu cầu sử dụng của khách hàng.</p>
+                            <p>Ngoài ra, Dolor Fashion Color_Shop cũng chú trọng đến việc bảo vệ môi trường bằng cách sử dụng các vật liệu thân thiện với môi trường. Việc này đã thu hút được rất nhiều khách hàng quan tâm đến vấn đề bảo vệ môi trường.</p>
+                            <p>Với chất lượng sản phẩm và dịch vụ hoàn hảo, Dolor Fashion Color_Shop đã nhận được sự tin tưởng và yêu thích từ rất nhiều khách hàng trong suốt nhiều năm qua. Để mua sắm các sản phẩm tại Dolor Fashion Color_Shop, bạn có thể đến trực tiếp cửa hàng hoặc truy cập vào trang web</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="best_sellers">
+        <div class="container">
+
+            <div class="row">
+                <div class="col">
+                    <div class="product_slider_container">
+                        <div class="owl-carousel owl-theme product_slider">
+                            @Html.Action("BetSell", "Product")
+
+
+                        </div>
+
+                        <!-- Slider Navigation -->
+
+                        <div class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        </div>
+                        <div class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="benefit">
+        <div class="container">
+            <div class="row benefit_row">
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>free shipping</h6>
+                            <p>Suffered Alteration in Some Form</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>cach on delivery</h6>
+                            <p>The Internet Tend To Repeat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>45 days return</h6>
+                            <p>Making it Look Like Readable</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>opening all week</h6>
+                            <p>8AM - 09PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

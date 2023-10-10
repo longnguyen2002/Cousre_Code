@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.Subscribe>
+
+@if (Model != null && Model.Any())
+{
+    <div style="height:330px;overflow-y:scroll">
+        @foreach (var item in Model)
+        {
+
+        <div class="user_review_container d-flex flex-column flex-sm-row">
+
+            <div class="user">
+                <div><img style="width:70px;height:70px;" src="https://baabrand.com/wp-content/uploads/2018/12/icon-thiet-ke-linh-vuc-logo-thuong-hieu-thoi-trang-my-pham-lam-dep-spa-baa-brand-1.png" /></div>
+                <div class="user_rating">
+                    <ul class="star_rating">
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div style="width:100%" class="review">
+                <div class="review_date">@item.CreatedDate.ToString("dd/MM/yyyy") </div>
+                <div style="margin-top:-22px;margin-right:20px;" class="text-right"> @Html.ActionLink(" x", "Delete", new { id = item.id }, new { @Class = "btn btn-sm", @Onclick = "return confirm('Bạn có muốn xóa bình luận này không?')" })</div>
+                <div class="user_name">@item.Name</div>
+                <p>@item.Detail </p>
+                <p class="checkicon">
+                    <a style="margin: 0px 5px; font-size: 20px; color: skyblue" id="tab_3"><i class="fa fa-thumbs-o-up"></i></a>
+                    <a style="margin: 0px 5px; font-size: 20px; color: dodgerblue" id="tab_3"><i class="fa fa-commenting-o"></i></a>
+                    <a style="margin: 0px 5px; font-size: 20px; color: dodgerblue" id="tab_3"><i class="fa fa-handshake-o"></i></a>
+                    <a style="margin: 0px 5px; font-size: 20px; color: dodgerblue" id="tab_3"><i class="fa fa-bookmark-o"></i></a>
+                </p>
+
+            </div>
+
+
+
+
+        </div>
+
+        }
+    </div>
+   
+   
+}

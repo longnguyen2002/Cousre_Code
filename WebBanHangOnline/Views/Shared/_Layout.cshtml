@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="https://baabrand.com/wp-content/uploads/2018/12/icon-thiet-ke-linh-vuc-logo-thuong-hieu-thoi-trang-my-pham-lam-dep-spa-baa-brand-1.png">
+    <meta name="description" content="Colo Shop Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Content/Client/styles/bootstrap4/bootstrap.min.css">
+    <link href="~/Content/Client/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Client/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Client/styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Client/styles/responsite.css">
+    <link rel="stylesheet" href="~/Content/Clients/dist/css/adminlte.min.css">
+
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Content/Client/js/jquery-3.2.1.min.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body >
+    <div  class="super_container">
+
+        <!-- Header -->
+
+        <header class="header trans_300">
+
+            <!-- Top Navigation -->
+
+            <div class="top_nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="top_nav_left">
+                                ASCENSION - COLOR_SHOP
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="top_nav_right">
+                                <ul class="top_nav_menu">
+
+                                    <!-- Currency / Language / My Account -->
+
+                                    <li class="currency">
+                                        <a href="#">
+                                            usd
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="currency_selection">
+                                            @*<li><a href="#">cad</a></li>
+                                            <li><a href="#">aud</a></li>
+                                            <li><a href="#">eur</a></li>
+                                            <li><a href="#">gbp</a></li>*@
+                                        </ul>
+                                    </li>
+                                    <li class="language">
+                                        <a href="#">
+                                            English
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="language_selection">
+                                            @*<li><a href="#">French</a></li>
+                                            <li><a href="#">Italian</a></li>
+                                            <li><a href="#">German</a></li>
+                                            <li><a href="#">Spanish</a></li>*@
+                                        </ul>
+                                    </li>
+                                    <li class="account">
+
+                                        @if (!Request.IsAuthenticated)
+                                        {
+                                            <a href="#">
+                                               <i style="font-size:8px;color:springgreen" class="fa fa-circle"></i> Đăng Nhập
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="account_selection">
+                                                <li><a style="font-size:15px;" href="/account/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                                                <li><a style="font-size:15px;" href="/account/register"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            <a href="#">
+                                                Xin Chào: <img style="width:30px;height:30px;border-radius:50%" class="img-circle elevation-2" alt="User Image" src="https://baabrand.com/wp-content/uploads/2018/12/icon-thiet-ke-linh-vuc-logo-thuong-hieu-thoi-trang-my-pham-lam-dep-spa-baa-brand-1.png"/> <b style="font-size:13px;">@User.Identity.Name</b> 
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul style="width:auto;" class="account_selection">
+                                                <li><a href="/Account/Profile"><i class="fa fa-user" aria-hidden="true"></i> Profile: @User.Identity.Name</a></li>
+                                                <li><a href="javascript:document.getElementById('logOffForm').submit()"><i class="fa fa-sign-in" aria-hidden="true"></i>Thoát</a></li>
+                                            </ul>
+                                        }
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if (Request.IsAuthenticated)
+            {
+                <div style="display:none">
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                    }
+                </div>
+
+            }
+            <!-- Main Navigation -->
+
+            <div class="main_nav_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-right">
+                            <div class="logo_container">
+                                <a href="/Home/Index">colo<span>shop</span></a>
+                            </div>
+                            <nav class="navbar">
+                                @Html.Action("MenuTop", "Menu")
+                                <ul class="navbar_user">
+                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                    <li><a href="/admin/home"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                    <li class="checkout">
+                                        <a href="/gio-hang">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            <span id="checkout_item" class="checkout_items">0</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="hamburger_container">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="fs_menu_overlay"></div>
+        <div class="hamburger_menu">
+            <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <div class="hamburger_menu_content text-right">
+                <ul class="menu_top_nav">
+                    <li class="menu_item has-children">
+                        <a href="#">
+                            usd
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="menu_selection">
+                            <li><a href="#">cad</a></li>
+                            <li><a href="#">aud</a></li>
+                            <li><a href="#">eur</a></li>
+                            <li><a href="#">gbp</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu_item has-children">
+                        <a href="#">
+                            English
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="menu_selection">
+                            <li><a href="#">French</a></li>
+                            <li><a href="#">Italian</a></li>
+                            <li><a href="#">German</a></li>
+                            <li><a href="#">Spanish</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu_item has-children">
+                        <a href="#">
+                            My Account
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="menu_selection">
+                            <li><a href="/admin/home"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                            <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu_item"><a href="/HomeMaster/Index">Trang Chủ</a></li>
+                    <li class="menu_item"><a href="/ReviewContent/Index">Giới thiệu</a></li>
+                    <li class="menu_item"><a href="/News/index">Tin tức</a></li>
+                    <li class="menu_item"><a href="/Product/HomeList">Sản Phẩm</a></li>
+                    <li class="menu_item"><a href="/Contact/Index">Cửa Hàng</a></li>
+                    <li class="menu_item"><a href="/Pages/Index">Khuyến Mại</a></li>
+                </ul>
+            </div>
+        </div>
+        @RenderBody()
+        <!-- Footer -->
+
+        <div class="container">
+            <div style="height:70px;"></div>
+        </div>
+        <footer style="background-color:thistle" class="footer">
+            <br />
+            <div class="mid-footer">
+                <div  class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-4 ft-info col-footer">
+
+                            <a href="#" class="logo-ft" title="Logo">
+                                <img style="width:100%;height:100px;background-size:cover" src="https://th.bing.com/th/id/OIP.bJf2yeuik1TnVJ5nR62PQQHaC_?w=304&h=141&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Dola Fashion Accessories">
+                            </a>
+                            <br />
+                            <div class="content-ft">
+                                Dolor Fashion Color_Shop là cửa hàng bán phụ kiện thời trang nữ đang được rất nhiều khách hàng yêu thích tại thành phố. Với các sản phẩm chất lượng, kiểu dáng đa dạng và giá cả hợp lý, cửa hàng này đã trở thành điểm đến quen thuộc của những người yêu thời trang.
+                            </div>
+                            <h4 class="title-menu">
+                                Hình thức thanh toán
+                            </h4>
+                            <ul style="display:flex" class="thanhtoan">
+                                <style>
+                                    .thanhtoan li {
+                                        flex-basis:24%;
+                                    }
+                                </style>
+                                <li><img width="80" height="35" alt="Payment 1" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/payment_1.png?1691748953146" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/payment_1.png?1691748953146" data-was-processed="true"></li>
+                                <li><img width="80" height="35" alt="Payment 2" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/payment_2.png?1691748953146" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/payment_2.png?1691748953146" data-was-processed="true"></li>
+                                <li><img width="80" height="35" alt="Payment 3" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/payment_3.png?1691748953146" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/payment_3.png?1691748953146" data-was-processed="true"></li>
+
+                            </ul>
+
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-2 link-list col-footer">
+                            <h4 class="title-menu title-menu2">
+                                Chính sách
+                            </h4>
+                            <ul  class="list-menu">
+
+                                <li ><a style="color:black" href="#" title="Chính sách thành viên">Chính sách thành viên</a></li>
+
+                                <li><a style="color:black" href="#" title="Chính sách thanh toán">Chính sách thanh toán</a></li>
+
+                                <li><a style="color:black" href="#" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a></li>
+
+                                <li><a style="color:black" href="#" title="Quà tặng tri ân">Quà tặng tri ân</a></li>
+
+                                <li><a style="color:black" href="#" title="Bảo mật thông tin cá nhân">Bảo mật thông tin cá nhân</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 link-list col-footer ">
+                            <h4 class="title-menu title-menu2">
+                                Thông tin chung
+                            </h4>
+                            <div class="group-address">
+                                <ul>
+                                    <li>
+                                        <b>Địa chỉ: </b><span>
+
+                                            70 Lữ Gia, Phường 15, Quận 11, TP.HCM
+
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <b>Điện thoại: </b><a title="1900 6750" href="tel:19006750">1900 6750</a>
+                                    </li>
+                                    <li>
+                                        <b>Email: </b><a title="support@sapo.vn" href="mailto:support@sapo.vn">support@sapo.vn</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h4 class="title-menu">
+                                Liên kết sàn
+                            </h4>
+                            <ul style="display:flex;" class="social">
+                                <style>
+                                    .social li {
+                                        flex-basis: 18%;
+                                    }
+                                </style>
+
+                                <li><a href="#" title="Shopee"><img width="40" height="32" title="Shopee" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/shopee.png?1691748953146" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/shopee.png?1691748953146" data-was-processed="true"></a></li>
+
+
+                                <li><a href="#" title="Lazada"><img width="40" height="32" title="Lazada" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/lazada.png?1691748953146" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/lazada.png?1691748953146" data-was-processed="true"></a></li>
+
+
+                                <li><a href="#" title="Tiki"><img width="40" height="32" title="Tiki" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/tiki.png?1691748953146" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/tiki.png?1691748953146" data-was-processed="true"></a></li>
+
+
+                                <li><a href="#" title="Sendo"><img width="40" height="32" title="Sendo" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/sendo.png?1691748953146" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/sendo.png?1691748953146" data-was-processed="true"></a></li>
+
+                            </ul>
+
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-3">
+                            <h4 class="title-menu">
+                                Hỗ trợ
+                            </h4>
+                            <ul class="call-footer">
+
+                                <li>
+                                    <span class="title">MUA ONLINE (08:00 - 21:00 mỗi ngày)</span>
+                                    <a href="tel:19006750" title="19006750">19006750</a>
+                                    <span class="content">Tất cả các ngày trong tuần (Trừ tết Âm Lịch)</span>
+                                </li>
+
+
+                                <li>
+                                    <span class="title">GÓP Ý &amp; KHIẾU NẠI (08:30 - 20:30)</span>
+                                    <a href="tel:19006750" title="19006750">19006750</a>
+                                    <span class="content">Tất cả các ngày trong tuần (Trừ tết Âm Lịch)</span>
+                                </li>
+
+                            </ul>
+
+                            <h4 class="title-menu">
+                                Mạng xã hội
+                            </h4>
+
+                            <ul style="display:flex" class="social">
+
+                                <li><a href="#" title="Zalo"><img width="40" height="32" title="Zalo" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/zalo.png?1691748953146" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/zalo.png?1691748953146" data-was-processed="true"></a></li>
+
+
+                                <li><a href="#" title="Facebook"><img width="40" height="32" title="Facebook" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/facebook.png?1691748953146" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/facebook.png?1691748953146" data-was-processed="true"></a></li>
+
+
+                                <li><a href="#" title="Youtube"><img width="40" height="32" title="Youtube" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/youtube.png?1691748953146" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/youtube.png?1691748953146" data-was-processed="true"></a></li>
+
+
+                                <li><a href="#" title="Google"><img width="40" height="32" title="Google" class="lazyload loaded" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/google.png?1691748953146" data-src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/google.png?1691748953146" data-was-processed="true"></a></li>
+
+                            </ul>
+
+                        </div>  
+                    </div>
+                </div>
+            </div>
+           
+        </footer>
+    </div>
+
+   
+    <script src="~/Content/Client/styles/bootstrap4/popper.js"></script>
+    <script src="~/Content/Client/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="~/Content/Client/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="~/Content/Client/plugins/easing/easing.js"></script>
+    <script src="~/Content/Client/js/custom.js"></script>
+    <script src="~/Content/Clients/dist/js/adminlte.min.js"></script>
+    <script src="~/Scripts/ShoppingCart.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+   
+</body>
+</html>

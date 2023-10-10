@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.Adv>
+
+@if (Model != null && Model.Any())
+{
+    <div class="carousel-inner">
+        @foreach (var item in Model)
+        {
+            <div class="carousel-item position-relative carousel-item-next carousel-item-left" style="height: 530px;">
+                <img class="position-absolute w-100 h-100" src="@item.Image" style="object-fit: cover;">
+                <div class="carousel-caption d-flex flex-column float-left">
+                    <div class="p-3" style="max-width: 700px;">
+                        <div class="main_slider_content ">
+                            <h3>@item.Title</h3>
+                            <h1>@item.Description</h1>
+                            <div style="box-shadow: 0px 0px 2px 8px rgba(0, 0, 0, 0.3);" class="red_button shop_now_button"><a href="#">shop now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        }
+
+        @*<div class="carousel-item position-relative" style="height: 530px;">
+            <img class="position-absolute w-100 h-100" src="https://img3.thuthuatphanmem.vn/uploads/2019/10/14/banner-thoi-trang-dang-cap-hien-dai_113856116.png" style="object-fit: cover;">
+            <div class="carousel-caption d-flex flex-column float-right">
+                <div class="p-3" style="max-width: 700px;">
+                    <div class="main_slider_content ">
+                        <h3>Men Fashion</h3>
+                        <h1>Get up to 30% Off New Arrivals</h1>
+                        <div style="box-shadow: 0px 0px 2px 8px rgba(0, 0, 0, 0.3);" class="red_button shop_now_button"><a href="#">shop now</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item position-relative active carousel-item-left" style="height: 530px;">
+            <img class="position-absolute w-100 h-100" src="https://www.jeans24h.eu/images/banm.jpg" style="object-fit: cover;">
+            <div class="carousel-caption d-flex flex-column float-left">
+                <div class="p-3" style="max-width: 700px;">
+
+                </div>
+            </div>
+        </div>*@
+    </div>
+}

@@ -1,0 +1,143 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.New>
+
+@{
+    ViewBag.Title = "Tin tức";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/Client/styles/bootstrap4/bootstrap.min.css">
+<link href="~/Content/Client/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Client/styles/categories_responsive.css">
+<div class="container product_section_container">
+    <div class="row">
+        <div class="col product_section clearfix">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="/HomeMaster/Index"><i class="fa fa-home"></i>Home</a></li>
+                    <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>@ViewBag.Title</a></li>
+                </ul>
+            </div>
+            <div class="blog_wrapper layout-blog" itemscope="" itemtype="https://schema.org/Blog">
+                <meta itemprop="name" content="Tin tức">
+                <meta itemprop="description" content="">
+                <div class="container">
+                    <h1 class="title-page d-none">
+                        <img width="72" height="43" src="//bizweb.dktcdn.net/100/489/042/themes/914351/assets/icon-title.png?1691748953146" alt="">
+                        <span>Tin tức</span>
+                    </h1>
+                    <div class="row">
+                        <div class="right-content col-lg-8 col-xl-8 col-12">
+                            <div class="list-blogs">
+
+                                <div class="row row-fix">
+                                    @if (Model != null && Model.Any())
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <div class=" col-md-6 col-xl-6 col-fix">
+
+                                                <div class="item-blog">
+                                                    <div class="block-thumb">
+
+                                                        <a class="thumb" href="/News/Detai_New/@item.id" title="Điểm danh những mẫu ví dài nữ mà các nàng nên sở hữu">
+                                                            <img style="width:350px;" class="lazyload loaded" src="@item.Image" alt="Điểm danh những mẫu ví dài nữ mà các nàng nên sở hữu" data-was-processed="true">
+                                                        </a>
+
+
+
+
+                                                    </div>
+                                                    <div class="block-content">
+                                                        <h3>
+                                                            <a style="font-size:20px;color:black" class="line-clamp line-clamp-2" href="/News/Detai_New/@item.id" title="">@item.Title</a>
+                                                        </h3>
+                                                        <p class="justify line-clamp line-clamp-3">
+                                                            @item.Description
+                                                        </p>
+
+                                                        <a class="btn btn-sm btn-danger" href="/News/Detai_New/@item.id" title="">Xem Chi tiết</a>
+                                                        <a style="color:white" class="btn btn-sm btn-success" title="">@item.CreatedDate.ToString("dd/MM/yyyy")</a>
+
+                                                    </div>
+                                                    <br />
+                                                </div>
+                                            </div>
+
+                                        }
+                                    }
+                                </div>
+
+                            </div>
+                            <hr />
+                        </div>
+                        <style>
+                            .blog_left_base {
+                                width: 100%;
+                                height: auto;
+                                
+                                
+                            }
+                            .aside-content-menu {
+                                background-color: #fff0f0;
+                                border-radius:10px;
+                            }
+                        </style>
+                     
+                        <div class="blog_left_base col-lg-4 col-xl-4">
+                            <div class="aside-content-menu aside-content-blog">
+                                <div style="font-size:20px;color:orangered;padding:10px 11px;text-transform:uppercase;font-weight:600" class="title-head-col">
+                                    <i class="fa fa-bars"></i> Danh mục tin tức
+                                </div>
+                                <nav class="nav-category">
+                                    @Html.Action("Menu_right","News")
+                                </nav>
+                            </div>
+                            <script>
+                                $(".open_mnu").click(function () {
+                                    $(this).toggleClass('cls_mn').next().slideToggle();
+                                });
+                            </script><div class="blog_noibat">
+
+                            <div class="container">
+                                <br /><br />
+                            </div>
+
+                               
+                            <div class="aside-content-menu aside-content-blog">
+                                <div style="font-size: 20px; color: orangered; padding: 10px 11px; text-transform: uppercase; font-weight: 600" class="title-head-col">
+                                    <i class="fa fa-hacker-news"></i> Tin tức nổi bật
+                                </div>
+                                <nav class="nav-category">
+                                   @Html.Action("New_hot","News")
+                                </nav>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script src="~/Content/Client/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/Client/styles/bootstrap4/popper.js"></script>
+    <script src="~/Content/Client/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="~/Content/Client/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Content/Client/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="~/Content/Client/plugins/easing/easing.js"></script>
+    <script src="~/Content/Client/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="~/Content/Client/js/categories_custom.js"></script>
+
+}

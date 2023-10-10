@@ -1,0 +1,150 @@
+﻿@model WebBanHangOnline.Models.EF.Category
+@{
+    ViewBag.Title = "Cập Nhập danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/Admin/Home" class="nav-link"><i style="color:black" class="fa fa-home"></i> Trang Chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/Admin/Category" class="nav-link"><i style="color: slateblue" class="fa fa-database"></i> Danh Mục</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link"><i style="color: black" class="fa fa-share-square"></i> Sửa Danh Mục</a>
+        </li>
+    </ul>
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Cập Nhập Danh Mục</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Admin/Category"><i style="color: slateblue" class="fa fa-database"></i> Danh Mục</a></li>
+                        <li class="breadcrumb-item active"><i style="color:black" class="fa fa-share-square"></i> Cập Nhập</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i style="color:black" class="	fa fa-book"></i> Thông tin danh mục</h3>
+
+
+            </div>
+            <div class="card-body">
+                <div class="bs-stepper-content">
+                    @using (Html.BeginForm("Edit", "Category", FormMethod.Post, new { }))
+                    {
+                        @Html.AntiForgeryToken();
+                        @Html.ValidationSummary(true);
+                        @Html.HiddenFor(x=>x.id)
+                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1"><i style="color: black" class="	fa fa-address-book"></i> Tên Danh Mục</label>
+                                    <div style="box-shadow: 0px 2px 5px #DCD7D7">
+                                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Tên Danh Mục" })
+                                        @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1"><i style="color: black" class="	fa fa-comment-o"></i> Mô Tả</label>
+                                    <div style="box-shadow: 0px 5px 10px #DCD7D7">
+                                        @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1"><i style="color: black" class="fa fa-pencil-square"></i> Thứ Tự</label>
+                                    <div style="box-shadow: 0px 5px 10px #DCD7D7">
+                                        @Html.TextBoxFor(x => x.Position, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1"><i style="color: black" class="	fa fa-commenting-o"></i> Seo Title</label>
+                                    <div style="box-shadow: 0px 5px 10px #DCD7D7">
+                                        @Html.TextBoxFor(x => x.SeoTitle, new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1"><i style="color: black" class="	fa fa-commenting-o"></i> Seo Description</label>
+                                    <div style="box-shadow: 0px 5px 10px #DCD7D7">
+                                        @Html.TextBoxFor(x => x.SeoDescription, new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1"><i style="color: black" class="	fa fa-commenting-o"></i> Seo Keywords</label>
+                                    <div style="box-shadow: 0px 5px 10px #DCD7D7">
+                                        @Html.TextBoxFor(x => x.SeoKeywords, new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"><i style="color: black" class="	fa fa-commenting-o"></i> Alias</label>
+                            <div style="box-shadow: 0px 2px 5px #DCD7D7">
+                                @Html.TextBoxFor(x => x.Alias, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Alias, null, new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-cog fa-spin"></i> Save</button>
+                            <a href="/Admin/Category" class="btn btn-danger" type="submit"> Quay Lại</a>
+                        </div>
+                    </div>
+                    }
+                    <!-- your steps content here -->
+
+                </div>
+            </div>
+            <!-- /.card-body -->
+           
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+

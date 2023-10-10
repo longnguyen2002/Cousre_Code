@@ -1,0 +1,81 @@
+﻿@model WebBanHangOnline.Models.ThongKeModel
+
+@if (Model != null)
+{
+    <div style="overflow-y:scroll;height:277px;" class="card-body">
+        <div class="d-flex justify-content-between  border-bottom mb-3">
+            <p class="text-success text-xl">
+                <i style="font-size:25px;" class="fa fa-user-o"> </i>
+
+            </p>
+            <p class="d-flex flex-column text-right">
+                <span class="font-weight-bold">
+                    @ViewBag.visitors_online
+                </span>
+                <span class="text-muted">Online</span>
+            </p>
+        </div>
+
+        <!-- /.d-flex -->
+        <div class="d-flex justify-content-between  border-bottom mb-3">
+            <p class="text-warning text-xl">
+                <i style="font-size:25px;" class="fa fa-address-book-o"></i>
+            </p>
+            <p class="d-flex flex-column text-right">
+                <span class="font-weight-bold">
+                    @Model.HomNay
+                </span>
+                <span class="text-muted">Số lần try cập hôm nay</span>
+            </p>
+        </div>
+
+        <!-- /.d-flex -->
+        <div class="d-flex justify-content-between  border-bottom mb-0">
+            <p class="text-primary text-xl">
+                <i style="font-size:25px;" class="ion ion-ios-people-outline"></i>
+            </p>
+            <p class="d-flex flex-column text-right">
+                <span class="font-weight-bold">
+                    @Model.TuanNay
+                </span>
+                <span class="text-muted">Số lần truy cập trong tuần </span>
+            </p>
+        </div>
+        <div class="d-flex justify-content-between  border-bottom mb-3">
+            <p class="text-primary text-xl">
+                <i style="font-size:25px;" class="ion ion-ios-people-outline"></i>
+            </p>
+            <p class="d-flex flex-column text-right">
+                <span class="font-weight-bold">
+                    @Model.ThangNay
+                </span>
+                <span class="text-muted">Số người truy cập tháng này</span>
+            </p>
+        </div>
+        <div class="d-flex justify-content-between  border-bottom mb-3">
+            <p class="text-primary text-xl">
+                <i style="font-size:25px;" class="ion ion-ios-people-outline"></i>
+            </p>
+            <p class="d-flex flex-column text-right">
+                <span class="font-weight-bold">
+                    @Model.ThangTruoc
+                </span>
+                <span class="text-muted">Số lần try cập tháng trước</span>
+            </p>
+        </div>
+        <div class="d-flex justify-content-between  border-bottom mb-3">
+            <p class="text-success text-xl">
+                <i style="font-size:25px;" class="	fa fa-eye"></i>
+            </p>
+            <p class="d-flex flex-column text-right">
+                <span class="font-weight-bold">
+                    @Model.TatCa
+                </span>
+                <span class="text-muted">Tổng số người truy cập tại website</span>
+            </p>
+        </div>
+        <!-- /.d-flex -->
+
+    </div>
+   
+}

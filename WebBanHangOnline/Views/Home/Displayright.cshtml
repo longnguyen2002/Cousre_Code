@@ -1,0 +1,17 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.Adv>
+
+@if (Model != null && Model.Any())
+{
+    <div class="col-lg-4 slide-main ">
+        @foreach (var item in Model)
+        {
+            <div class="product-offer mb-30 images-left" style="height: 270px;">
+                <img style="height:260px;" class="img-fluid" src="@item.Image" alt="">
+
+            </div>
+        }
+
+       
+
+    </div>
+}

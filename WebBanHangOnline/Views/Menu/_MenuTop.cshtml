@@ -1,0 +1,12 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.Category>
+
+@if (Model != null && Model.Any())
+{
+    <ul class="navbar_menu">
+        @foreach (var item in Model)
+        {
+            <li ><a style="margin-top:15px;font-size:13.5px;" href="/@item.Alias">@item.Title</a></li>
+        }
+      
+    </ul>
+}

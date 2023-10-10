@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.New>
+
+@if (Model != null && Model.Any())
+{
+    <ul style="display: inline; padding: 25px 0px;" class="nav navbar-pills">
+        @foreach (var item in Model)
+        {
+            <li style="padding:10px 5px;" class="nav-item  relative">
+                <div style="display:flex">
+                    <div>
+                        <img style="width:90px;height:85px;" src="@item.Image" />
+                    </div>
+                    <div style="margin-left:9px;">
+                        <span>
+                            @item.Title
+
+                        </span><br />
+                               <span class="btn btn-sm btn-danger">@item.CreatedDate.ToString("dd/MM/yyyy")</span>
+                    </div>
+                </div>
+
+            </li>
+        }
+
+
+
+    </ul>
+}

@@ -1,0 +1,54 @@
+﻿@model List<WebBanHangOnline.Models.EF.Product>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <div style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); height:auto;margin:auto;" class="product-item men">
+            <div class="product discount product_filter">
+                <div class="product_image">
+                    <img src="@item.Image" alt="">
+                </div>
+                <div class="favorite favorite_left"></div>
+                @if (item.IsHot == true)
+                {
+                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>Hot</span></div>
+                }
+                else
+                {
+                    if (item.IsFeature == true)
+                    {
+                        <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>New</span></div>
+                    }
+                    else
+                    {
+
+                    }
+                }
+                <div class="product_info">
+                    <h6 class="product_name"><a href="/Product/ProductDetail/@item.id">@item.Title</a></h6>
+                   
+                    <div class="product_price">$@item.Price
+                        <span>
+                            @if(item.PriceSale > item.Price)
+                                {
+                                    @item.PriceSale
+                                }
+                                else
+                                {
+
+                                }  
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.id">Add to cart</a></div>
+        </div>
+       
+           
+            }
+            }
+
+
+
+

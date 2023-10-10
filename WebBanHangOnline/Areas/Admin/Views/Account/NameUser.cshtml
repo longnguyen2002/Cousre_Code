@@ -1,0 +1,16 @@
+﻿@*@model IEnumerable<WebBanHangOnline.Models.ApplicationUser>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        if (item.UserName == "Admin")
+        {
+            <a href="#" class="d-block">@item.Fullname</a>
+        }
+        if (item.UserName == "nhanvien")
+        { 
+            <a href="#" class="d-block"></a>
+        }*@
+    }
+}

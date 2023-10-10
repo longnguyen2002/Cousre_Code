@@ -1,0 +1,47 @@
+﻿@model WebBanHangOnline.Models.ThongKeModel
+
+@if (Model != null)
+{
+    <div class="thongke">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td><i style="font-size:8px;color:springgreen" class="fa fa-circle"></i> Số người online</td>
+                <th>@ViewBag.visitors_online</th>
+            </tr>
+        </table>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td><i style="font-size: 11px; color: orangered" class="	fa fa-eye"></i> Hôm Nay</td>
+                <th>@Model.HomNay</th>
+            </tr>
+            <tr>
+                <td><i style="font-size: 11px; color: orangered" class="	fa fa-eye"></i> Hôm Qua</td>
+                <th>@Model.HomQua</th>
+            </tr>
+            <tr>
+                <td><i style="font-size: 11px; color: orangered" class="		fa fa-eye"></i> Tuần Này</td>
+                <th>@Model.TuanNay</th>
+            </tr>
+           
+            <tr>
+                <td><i style="font-size: 11px; color: orangered" class="	fa fa-eye"></i> Tháng này</td>
+                <th>@Model.ThangNay</th>
+            </tr>
+            <tr>
+                <td><i style="font-size: 11px; color: orangered" class="	fa fa-eye"></i> Tháng trước</td>
+                <th>@Model.ThangTruoc</th>
+            </tr>
+            <tr>
+                <td><i style="font-size: 11px; color: orangered" class="	fa fa-eye"></i> Tổng Số người truy cập</td>
+                <th>@Model.TatCa</th>
+            </tr>
+
+
+
+        </table>
+
+
+    </div>
+
+}
+

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.Order>
+<div style="overflow-y:scroll;height:320px;">
+    <table class="table table-striped">
+        <tr style="background-color:cornflowerblue;" class="text-center">
+            <th>#</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            
+            <th>Price</th>
+        </tr>
+        @if (Model != null && Model.Any())
+        {
+            var i = 0;
+            var tongtien = decimal.Zero;
+
+            foreach (var item in Model)
+            {
+                tongtien += item.TotalAmount;
+                <tr>
+                    <td>@(i+1)</td>
+                    <td>@item.Code</td>
+                    <td><i>@item.CustomerName</i></td>
+                    <td>@item.Phone</td>
+                    <td>@item.Address</td>
+                   
+                    <td><i>$@string.Format("{0:#,##0}", item.TotalAmount)</i></td>
+                </tr>
+                i++;
+            }
+            <tr class="table table-bordered">
+                <td class="text-right" style="font-weight:600" colspan="5">Tổng tiền:</td>
+                <td><i>$@string.Format("{0:#,##0}", tongtien)</i></td>
+            </tr>
+
+        }
+
+
+    </table>
+</div>
+
+
+
